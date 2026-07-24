@@ -1,0 +1,96 @@
+:root {
+    --bg: #0f1117;
+    --panel: #181b24;
+    --texto: #e8eaf0;
+    --texto-suave: #8b91a3;
+    --acento: #4f8cff;
+    --radio: 10px;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+  }
+  
+  .app {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .app__header h1 { margin: 0 0 .25rem; font-size: 1.75rem; }
+  .app__subtitle { margin: 0 0 1.5rem; color: var(--texto-suave); }
+  
+  /* ---- Buscador ---- */
+  .search { display: flex; gap: .5rem; margin-bottom: 1.5rem; }
+  
+  .search__input {
+    flex: 1;
+    padding: .75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #2a2f3d;
+    border-radius: var(--radio);
+    background: var(--panel);
+    color: var(--texto);
+  }
+  .search__input:focus {
+    outline: 2px solid var(--acento);
+    outline-offset: 2px;
+  }
+  
+  .search__button {
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 0;
+    border-radius: var(--radio);
+    background: var(--acento);
+    color: #fff;
+    cursor: pointer;
+  }
+  .search__button:disabled { opacity: .5; cursor: not-allowed; }
+  
+  /* ---- Estado ---- */
+  .estado { min-height: 1.5rem; margin-bottom: 1rem; color: var(--texto-suave); }
+  .estado--error { color: #ff6b6b; }
+  
+  /* ---- Gráfico ---- */
+  .resultado__titulo { font-size: 1.25rem; margin: 0 0 1rem; }
+  
+  .grafico {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 320px;
+    padding: 1rem;
+    background: var(--panel);
+    border-radius: var(--radio);
+    overflow-x: auto;
+  }
+  
+  .barra {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    min-width: 26px;
+    height: 100%;
+  }
+  
+  .barra__valor { font-size: .65rem; color: var(--texto-suave); }
+  
+  .barra__relleno {
+    width: 100%;
+    height: var(--altura);
+    background: var(--color);
+    border-radius: 4px 4px 0 0;
+    transition: height .4s ease;
+  }
+  
+  .barra__hora { font-size: .65rem; color: var(--texto-suave); }

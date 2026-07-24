@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termómetro de barras</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>Termómetro de barras</h1>
+      <p class="app__subtitle">Temperatura hora a hora de cualquier ciudad</p>
+    </header>
+
+    <div class="search">
+      <input
+        type="text"
+        id="input-ciudad"
+        class="search__input"
+        placeholder="Escribe una ciudad…"
+        autocomplete="off"
+      >
+      <button id="btn-buscar" class="search__button">Buscar</button>
+    </div>
+
+    <section id="estado" class="estado" aria-live="polite"></section>
+
+    <section id="resultado" class="resultado" hidden>
+      <h2 id="titulo-ciudad" class="resultado__titulo"></h2>
+      <div id="grafico" class="grafico"></div>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
