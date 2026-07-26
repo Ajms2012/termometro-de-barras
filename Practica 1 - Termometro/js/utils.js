@@ -1,6 +1,15 @@
 export function formatearHora(instanteISO) {
     return instanteISO.slice(11, 16);
   }
+
+  export function convertirTemperatura(celsius, unidad) {
+    if (unidad === "F") return (celsius * 9) / 5 + 32;
+    return celsius;
+  }
+
+  export function formatearTemperatura(celsius, unidad) {
+    return `${Math.round(convertirTemperatura(celsius, unidad))} °${unidad}`;
+  }
   
   export function calcularAlturas(temperaturas) {
     const min = Math.min(...temperaturas);

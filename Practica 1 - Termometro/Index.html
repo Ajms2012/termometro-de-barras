@@ -7,31 +7,73 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="weather-backdrop" aria-hidden="true">
+    <canvas id="rive-weather" class="weather-backdrop__rive" width="360" height="360"></canvas>
+    <div id="theme-scene" class="weather-backdrop__ambient"></div>
+    <div id="weather-scene" class="weather-backdrop__scene"></div>
+  </div>
+
   <main class="app">
     <header class="app__header">
-      <h1>Termómetro de barras</h1>
-      <p class="app__subtitle">Temperatura hora a hora de cualquier ciudad</p>
+      <div class="app__intro">
+        <span class="app__eyebrow">
+          <span class="app__eyebrow-dot" aria-hidden="true"></span>
+          Tiempo en vivo
+        </span>
+        <h1 class="app__title">Termómetro de barras</h1>
+        <p class="app__subtitle">Temperatura hora a hora de cualquier ciudad</p>
+      </div>
+      <div class="theme-toggle">
+        <input id="btn-tema" class="theme-toggle__input" type="checkbox" role="switch" aria-label="Cambiar a tema claro">
+        <label class="theme-toggle__track" for="btn-tema">
+          <span class="theme-toggle__cloud theme-toggle__cloud--one"></span>
+          <span class="theme-toggle__cloud theme-toggle__cloud--two"></span>
+          <span class="theme-toggle__star theme-toggle__star--one"></span>
+          <span class="theme-toggle__star theme-toggle__star--two"></span>
+          <span class="theme-toggle__star theme-toggle__star--three"></span>
+          <span class="theme-toggle__thumb">
+            <span class="theme-toggle__crater theme-toggle__crater--one"></span>
+            <span class="theme-toggle__crater theme-toggle__crater--two"></span>
+            <span class="theme-toggle__crater theme-toggle__crater--three"></span>
+          </span>
+        </label>
+      </div>
     </header>
 
     <div class="search">
-      <input
-        type="text"
-        id="input-ciudad"
-        class="search__input"
-        placeholder="Escribe una ciudad…"
-        autocomplete="off"
-      >
+      <label class="search__field" for="input-ciudad">
+        <span class="search__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M10.8 18.1a7.3 7.3 0 1 1 5.2-2.1l3.7 3.7" />
+          </svg>
+        </span>
+        <input
+          type="text"
+          id="input-ciudad"
+          class="search__input"
+          placeholder="Escribe una ciudad..."
+          autocomplete="off"
+        >
+        <span class="search__glow" aria-hidden="true"></span>
+      </label>
       <button id="btn-buscar" class="search__button">Buscar</button>
     </div>
 
     <section id="estado" class="estado" aria-live="polite"></section>
 
+    <section id="opciones-ciudad" class="opciones" hidden></section>
+
     <section id="resultado" class="resultado" hidden>
-      <h2 id="titulo-ciudad" class="resultado__titulo"></h2>
+      <div class="resultado__cabecera">
+        <h2 id="titulo-ciudad" class="resultado__titulo"></h2>
+        <button id="btn-unidad" class="unidad" type="button" aria-label="Cambiar a Fahrenheit">°F</button>
+      </div>
       <div id="grafico" class="grafico"></div>
     </section>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/@rive-app/canvas@2.39.0/rive.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
